@@ -1,0 +1,73 @@
+.jarea-select-box {
+  font-family: "Microsoft Yahei", Arial,Helvetica,sans-serif,"宋体" !important;
+  border: 1px solid #f1f1f1;
+  padding: 10px;
+  margin-top: 10px;
+  position: absolute; }
+  .jarea-select-box a {
+    font-size: 15px;
+    color: #393D49; }
+  .jarea-select-box .tab-ul {
+    padding: 0;
+    margin: 0;
+    clear: both;
+    word-spacing: 0px;
+    font-size: 0; }
+    .jarea-select-box .tab-ul .tab-item {
+      list-style: none;
+      display: inline-block;
+      padding: 0px 5px;
+      margin: 0px 2px;
+      border: 1px solid #f1f1f1;
+      border-bottom: none; }
+      .jarea-select-box .tab-ul .tab-item a {
+        color: #009688;
+        text-decoration: none; }
+    .jarea-select-box .tab-ul .tab-item.active {
+      border: 2px solid #009688;
+      border-bottom: none;
+      position: relative;
+      top: 2px;
+      background-color: #ffffff;
+      z-index: 10; }
+      .jarea-select-box .tab-ul .tab-item.active a {
+        color: #FF5722; }
+  .jarea-select-box .tab-content {
+    border-top: 2px solid #009688;
+    width: 400px; }
+    .jarea-select-box .tab-content .tab-panel ul {
+      margin: 0;
+      padding: 5px 0px;
+      overflow: hidden;
+      clear: both; }
+      .jarea-select-box .tab-content .tab-panel ul li {
+        list-style: none;
+        float: left;
+        padding: 1px 5px; }
+        .jarea-select-box .tab-content .tab-panel ul li a {
+          font-size: 14px;
+          text-decoration: none;
+          display: inline-block;
+          padding: 2px 5px; }
+          .jarea-select-box .tab-content .tab-panel ul li a:hover {
+            background-color: #009688;
+            color: #ffffff; }
+    .jarea-select-box .tab-content .active {
+      display: block; }
+  .jarea-select-box .close-btn {
+    position: absolute;
+    right: 10px;
+    top: 4px;
+    width: 25px;
+    text-align: center;
+    background-color: #F1F1F1;
+    height: 25px;
+    line-height: 22px;
+    border-radius: 25px;
+    font-size: 16px;
+    color: #333333; }
+    .jarea-select-box .close-btn:hover {
+      text-decoration: none;
+      background-color: #f1f1f1; }
+
+/*# sourceMappingURL=jareaselect2.css.map */

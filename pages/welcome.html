@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<title>欢迎页</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body>
+<div class="layui-fluid x-body" id="app">
+	<blockquote class="layui-elem-quote">当前时间：{{ curentTime }}，欢迎你，<span class="x-red">Admin</span>！
+	</blockquote>
+
+	<fieldset class="layui-elem-field">
+		<legend>数据统计</legend>
+		<div class="layui-field-box">
+			<div class="layui-col-md12">
+				<div class="layui-card00">
+					<div class="layui-card-body">
+						<div class="layui-carousel x-admin-carousel x-admin-backlog" lay-anim="" lay-indicator="inside"
+							 lay-arrow="none" style="width: 100%; height: 90px;">
+							<div carousel-item="">
+								<ul class="layui-row layui-col-space10 layui-this">
+									<li class="layui-col-xs2">
+										<a href="javascript:;" class="x-admin-backlog-body">
+											<h3>文章数</h3>
+											<p>
+												<cite>66</cite></p>
+										</a>
+									</li>
+									<li class="layui-col-xs2">
+										<a href="javascript:;" class="x-admin-backlog-body">
+											<h3>会员数</h3>
+											<p>
+												<cite>12</cite></p>
+										</a>
+									</li>
+									<li class="layui-col-xs2">
+										<a href="javascript:;" class="x-admin-backlog-body">
+											<h3>回复数</h3>
+											<p>
+												<cite>99</cite></p>
+										</a>
+									</li>
+									<li class="layui-col-xs2">
+										<a href="javascript:;" class="x-admin-backlog-body">
+											<h3>商品数</h3>
+											<p>
+												<cite>67</cite></p>
+										</a>
+									</li>
+									<li class="layui-col-xs2">
+										<a href="javascript:;" class="x-admin-backlog-body">
+											<h3>文章数</h3>
+											<p>
+												<cite>67</cite></p>
+										</a>
+									</li>
+									<li class="layui-col-xs2">
+										<a href="javascript:;" class="x-admin-backlog-body">
+											<h3>文章数</h3>
+											<p>
+												<cite>6766</cite></p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+	<fieldset class="layui-elem-field">
+		<legend>访问统计</legend>
+		<div class="layui-field-box">
+			<div class="layui-row layui-col-space15">
+				<div class="layui-col-sm6 layui-col-md3">
+					<div class="layui-card bg-gray">
+						<div class="layui-card-header">
+							访问量
+							<span class="layui-badge layui-bg-blue layuiadmin-badge">周</span>
+						</div>
+						<div class="layui-card-body layuiadmin-card-list">
+							<p class="layuiadmin-big-font">9,999,666</p>
+							<p>
+								总计访问量
+								<span class="layuiadmin-span-color">88万 <i
+									class="layui-inline layui-icon layui-icon-flag"></i></span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-sm6 layui-col-md3">
+					<div class="layui-card bg-gray">
+						<div class="layui-card-header">
+							下载
+							<span class="layui-badge layui-bg-cyan layuiadmin-badge">月</span>
+						</div>
+						<div class="layui-card-body layuiadmin-card-list">
+							<p class="layuiadmin-big-font">33,555</p>
+							<p>
+								新下载
+								<span class="layuiadmin-span-color">10% <i
+									class="layui-inline layui-icon layui-icon-face-smile-b"></i></span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-sm6 layui-col-md3">
+					<div class="layui-card bg-gray">
+						<div class="layui-card-header">
+							收入
+							<span class="layui-badge layui-bg-green layuiadmin-badge">年</span>
+						</div>
+						<div class="layui-card-body layuiadmin-card-list">
+
+							<p class="layuiadmin-big-font">999,666</p>
+							<p>
+								总收入
+								<span class="layuiadmin-span-color">*** <i
+									class="layui-inline layui-icon layui-icon-dollar"></i></span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-sm6 layui-col-md3">
+					<div class="layui-card bg-gray">
+						<div class="layui-card-header">
+							活跃用户
+							<span class="layui-badge layui-bg-orange layuiadmin-badge">月</span>
+						</div>
+						<div class="layui-card-body layuiadmin-card-list">
+
+							<p class="layuiadmin-big-font">66,666</p>
+							<p>
+								最近一个月
+								<span class="layuiadmin-span-color">15% <i
+									class="layui-inline layui-icon layui-icon-user"></i></span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+	<div class="layui-col-sm12" style="margin-bottom: 10px;">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-sm6">
+				<div class="layui-card border-gray">
+					<div class="layui-card-header">本周活跃用户</div>
+					<div class="layui-card-body">
+						<table class="layui-table layuiadmin-page-table" lay-skin="line">
+							<thead>
+							<tr>
+								<th>用户名</th>
+								<th>最后登录时间</th>
+								<th>状态</th>
+								<th>获得赞</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td><span class="first">胡歌</span></td>
+								<td><i class="layui-icon layui-icon-log"> 11:20</i></td>
+								<td><span>在线</span></td>
+								<td>22 <i class="layui-icon layui-icon-praise"></i></td>
+							</tr>
+							<tr>
+								<td><span class="second">彭于晏</span></td>
+								<td><i class="layui-icon layui-icon-log"> 10:40</i></td>
+								<td><span>在线</span></td>
+								<td>21 <i class="layui-icon layui-icon-praise"></i></td>
+							</tr>
+							<tr>
+								<td><span class="third">靳东</span></td>
+								<td><i class="layui-icon layui-icon-log"> 01:30</i></td>
+								<td><i>离线</i></td>
+								<td>66 <i class="layui-icon layui-icon-praise"></i></td>
+							</tr>
+							<tr>
+								<td>吴尊</td>
+								<td><i class="layui-icon layui-icon-log"> 21:18</i></td>
+								<td><i>离线</i></td>
+								<td>45 <i class="layui-icon layui-icon-praise"></i></td>
+							</tr>
+							<tr>
+								<td>许上进</td>
+								<td><i class="layui-icon layui-icon-log"> 09:30</i></td>
+								<td><span>在线</span></td>
+								<td>21 <i class="layui-icon layui-icon-praise"></i></td>
+							</tr>
+                            <tr>
+                                <td><span class="first">胡歌</span></td>
+                                <td><i class="layui-icon layui-icon-log"> 11:20</i></td>
+                                <td><span>在线</span></td>
+                                <td>22 <i class="layui-icon layui-icon-praise"></i></td>
+                            </tr>
+                            <tr>
+                                <td><span class="second">彭于晏</span></td>
+                                <td><i class="layui-icon layui-icon-log"> 10:40</i></td>
+                                <td><span>在线</span></td>
+                                <td>21 <i class="layui-icon layui-icon-praise"></i></td>
+                            </tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="layui-col-sm6">
+				<div class="layui-card border-gray">
+					<div class="layui-card-header">项目进展</div>
+					<div class="layui-card-body">
+						<table class="layui-table layuiadmin-page-table" lay-skin="line">
+							<thead>
+							<tr>
+								<th class="layui-form" width="20"><input type="checkbox" name="" title="" lay-skin="primary"></th>
+								<th>任务</th>
+								<th>所需时间</th>
+								<th>完成情况</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr v-for="(item, index) in tasks">
+								<td class="layui-form" width="20"><input type="checkbox" name="" :index="index" lay-filter="task" v-model="item.finished" title="" lay-skin="primary"></td>
+								<td>{{ item.name }}</td>
+								<td>{{ item.time }}</td>
+								<td>
+									<span class="layui-badge" v-if="item.progress == 0">未启动</span>
+									<span class="layui-badge layui-bg-orange" v-else-if="item.progress == 1">进行中</span>
+									<span class="layui-badge layui-bg-green" v-else-if="item.progress == 2">已完成</span>
+								</td>
+							</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div> <!-- end  layui-col-sm12-->
+
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>数据接口</legend>
+    </fieldset>
+
+    <pre class="layui-code">
+{
+    "code": "000",              //返回错误码, 成功时返回 000
+    "message": "获取图片成功.",   //错误信息
+    "count": null,              //记录条数
+    "page": null,               //页码，获取数据列表时使用
+    "pagesize": null,           //每页条数，获取数据列表时使用
+    "extra": null,              // 附加数据
+    "data": "http://oxy1ihdnt.bkt.clouddn.com/image-15323349785056.jpg", // 返回数据
+}
+	</pre>
+
+</div>
+
+<script type="text/javascript" src="../js/libs/jquery.min.js "></script>
+<script type="text/javascript" src="../js/libs/layui/layui.js"></script>
+<script type="text/javascript" src="../js/libs/vue/vue.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script>
+	var APP = new Vue({
+		el: "#app",
+		data: {
+			now: new Date(),
+			tasks: [
+				{finished: true, time: "两小时", name: "需求讨论会", progress:2},
+				{finished: false, time: "一天", name: "前端架构", progress:0},
+				{finished: true, time: "两天半", name: "后端架构", progress:2},
+				{finished: false, time: "五天", name: "用户模块开发", progress:1},
+				{finished: true, time: "三天半", name: "交易模块开发", progress:2},
+				{finished: false, time: "四天半", name: "订单模块开发", progress:0},
+				{finished: false, time: "三天", name: "测试 + 修 Bug", progress:0},
+			]
+		},
+		computed: {
+			curentTime: function () {
+				function formatNumber(num) {
+					return num <= 9 ? "0" + num : num;
+				}
+
+				var seperator1 = "-";
+				var seperator2 = ":";
+				return this.now.getFullYear() + seperator1
+					+ formatNumber(this.now.getMonth()) + seperator1
+					+ formatNumber(this.now.getDate()) + " "
+					+ formatNumber(this.now.getHours()) + seperator2
+					+ formatNumber(this.now.getMinutes()) + seperator2
+					+ formatNumber(this.now.getSeconds());
+			}
+		},
+		
+		methods: {
+
+			// checkbox onchange event.
+			checkboxClick: function (checkbox) {
+				var index = checkbox.getAttribute("index");
+				if (checkbox.checked) {
+					this.tasks[index].progress = 2;
+					this.tasks[index].finished = true;
+				} else {
+					this.tasks[index].progress = 0;
+					this.tasks[index].finished = false;
+				}
+			}
+		}
+	});
+
+	layui.use(['form'], function () {
+		var form = layui.form;
+		form.on('checkbox(task)', function(data) {
+			APP.checkboxClick(data.elem);
+		})
+	});
+</script>
+</body>
+
+</html>

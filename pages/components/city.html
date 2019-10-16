@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>城市联动选择</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="../../assets/css/main.css">
+    </head>
+    <body>
+
+        <div class="x-body">
+
+            <blockquote class="layui-elem-quote">
+                <p>特别声明：JAreaSelect区域选择插件是一个区域选择的js插件。数据是抓取京东的最新的区域数据。 很全面，大约5000多条，涵盖了中国所有的地区，包括钓鱼岛在内。</p>
+                <p>提供了普通样式和仿京东样式的小工具，另外还提供了一个超级简陋的管理界面，</p>
+                获取
+                <a href="https://gitee.com/blackfox/JAreaSelect" style="color:#cc0000" target="_blank">JAreaSelect 源码</a>
+            </blockquote>
+
+            <div class="layui-row">
+
+                <form class="layui-form">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">不带初始值</label>
+                        <div class="layui-input-block" id="area-select-box-1"></div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">带初始值</label>
+                        <div class="layui-input-block" id="area-select-box-2"></div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"></label>
+                        <button class="layui-btn" id="get-area-value" type="button">获取选中地区</button>
+                    </div>
+                </form>
+            </div>
+
+            <blockquote class="layui-elem-quote">
+                <p>JAreaSelect layui 定制版, 依赖 layui form 模块，使用之前先确认这两者是否引入</p>
+
+                <p>插件文件为 JAreaData.js, JAreaSelect.js 引入</p>
+
+                <p>初始化 $('#area-select-box').JAreaSelect();</p>
+                <p>传默认值 var area = $("#area-select-box").JAreaSelect({prov: 1, city: 72, dist: 2839});</p>
+            </blockquote>
+
+            <div class="layui-row">
+                <div class="layui-form">
+                    <button class="layui-btn" id="btn">选择区域</button>
+
+                    <div id="area-select"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="../../js/libs/jquery.min.js "></script>
+        <script type="text/javascript" src="../../js/libs/layui/layui.js"></script>
+        <script type="text/javascript" src="../../js/main.js"></script>
+        <script type="text/javascript" src="../../js/libs/city/JAreaData.js"></script>
+        <script type="text/javascript" src="../../js/libs/city/JAreaSelect.js"></script>
+        <script type="text/javascript" src="../../js/libs/city/JAreaSelect2.js"></script>
+        <script>
+            layui.use(['form', 'code'], function () {
+                var layer = layui.layer;
+                layui.code();
+                var area1 = $("#area-select-box-1").JAreaSelect();
+                var area2 = $("#area-select-box-2").JAreaSelect({prov: 1, city: 72, dist: 2839});
+
+                $("#get-area-value").on("click", function () {
+                    // 打印城市 ID 信息
+                    console.log(area1.getAreaId());
+                    layer.alert(area2.getAreaString(), {title: "您选中的城市信息"});
+                });
+
+	            //仿京东区域选择器
+	            $("#btn").on("click", function () {
+		            $("#area-select").JAreaSelect2({
+			            prov: 1,
+			            city: 72,
+			            dist: 2839,
+			            // 选完之后回调
+			            callback: function (data) {
+				            console.log(data);
+				            layer.alert(data.address, {title: "您选中的城市信息"});
+				            $("#btn").html(data.address);
+			            }
+		            });
+	            });
+            });
+
+        </script>
+    </body>
+</html>

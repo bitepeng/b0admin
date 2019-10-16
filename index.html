@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<title>B0Admin</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+<!-- 顶部开始 -->
+<div class="container">
+	<div class="logo">
+		<a href="index.html">B0Admin</a>
+	</div>
+	<div class="left_open">
+		<i title="展开左侧栏" class="iconfont">&#xe699;</i>
+	</div>
+	<ul class="layui-nav left fast-add" lay-filter="">
+		<li class="layui-nav-item">
+			<a href="javascript:;" title="刷新工具" id="frame-reload">
+				<i class="layui-icon" title="刷新页面">&#xe9aa;</i>
+			</a>
+		</li>
+		<li class="layui-nav-item">
+			<a href="javascript:;">快捷菜单</a>
+			<dl class="layui-nav-child">
+				<!-- 二级菜单 -->
+				<dd>
+					<a href="javascript:void(0);">
+						<i class="iconfont">&#xe6a2;</i>资讯</a>
+				</dd>
+				<dd>
+					<a href="javascript:void(0);">
+						<i class="iconfont">&#xe6a8;</i>图片</a>
+				</dd>
+				<dd>
+					<a href="javascript:void(0);">
+						<i class="iconfont">&#xe6b8;</i>用户</a>
+				</dd>
+			</dl>
+		</li>
+	</ul>
+	<ul class="layui-nav right" lay-filter="">
+		<li class="layui-nav-item">
+			<a href="javascript:;"> <i class="iconfont">&#xe6b8;</i> admin</a>
+			<dl class="layui-nav-child">
+				<!-- 二级菜单 -->
+				<dd>
+					<a onclick="x_admin_open('修改密码','./pages/datatable/update-pass.html', 452, 300)">修改密码</a>
+				</dd>
+				<dd>
+					<a href="./login.html">退出</a>
+				</dd>
+			</dl>
+		</li>
+		<!--<li class="layui-nav-item to-index">
+			<a href="/">前台首页</a>
+		</li>-->
+	</ul>
+</div>
+<!-- 顶部结束 -->
+<!-- 中部开始 -->
+<!-- 左侧菜单开始 -->
+<div class="left-nav">
+	<div id="side-nav">
+		<ul id="nav">
+			<li>
+				<a href="javascript:;">
+					<i class="iconfont">&#xe6b5;</i>
+					<cite>数据表格</cite>
+					<i class="iconfont nav_right">&#xe697;</i>
+				</a>
+				<ul class="sub-menu">
+					<li>
+						<a _href="pages/datatable/user-list.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>用户列表</cite>
+						</a>
+					</li>
+                    <li>
+                        <a _href="pages/datatable/table.html">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>排序表格</cite>
+                        </a>
+                    </li>
+				</ul>
+			</li>
+
+			<li>
+				<a href="javascript:;">
+					<i class="iconfont">&#xe696;</i>
+					<cite>其他组件</cite>
+					<i class="iconfont nav_right">&#xe697;</i>
+				</a>
+				<ul class="sub-menu">
+
+					<li>
+						<a _href="pages/components/form.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>表单</cite>
+						</a>
+					</li>
+
+					<li>
+						<a _href="pages/components/progress.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>进度条</cite>
+						</a>
+					</li>
+
+					<li>
+						<a _href="pages/components/city.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>城市联动</cite>
+						</a>
+					</li>
+
+					<li>
+						<a _href="pages/components/unicode.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>图标</cite>
+						</a>
+					</li>
+
+				</ul>
+			</li>
+
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe6fc;</i>
+                    <cite>编辑器</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="pages/editor/editor-layui.html">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>LayUI 自带</cite>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a _href="pages/editor/editor-nkeditor.html">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>NKeditor</cite>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe723;</i>
+                    <cite>文件上传</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="pages/upload/upload-demo-1.html">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>Layiu.upload</cite>
+                        </a>
+                    </li>
+                    <li>
+                        <a _href="pages/upload/upload-demo-2.html">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>JUpload 演示</cite>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li>
+				<a href="javascript:;">
+					<i class="iconfont">&#xe6ce;</i>
+					<cite>图表统计</cite>
+					<i class="iconfont nav_right">&#xe697;</i>
+				</a>
+				<ul class="sub-menu">
+					<li>
+						<a _href="pages/echarts/echarts1.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>拆线图</cite>
+						</a>
+					</li>
+					<li>
+						<a _href="pages/echarts/echarts2.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>柱状图</cite>
+						</a>
+					</li>
+					<li>
+						<a _href="pages/echarts/echarts3.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>地图</cite>
+						</a>
+					</li>
+					<li>
+						<a _href="pages/echarts/echarts4.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>饼图</cite>
+						</a>
+					</li>
+					<li>
+						<a _href="pages/echarts/echarts5.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>雷达图</cite>
+						</a>
+					</li>
+					<li>
+						<a _href="pages/echarts/echarts6.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>k线图</cite>
+						</a>
+					</li>
+					<li>
+						<a _href="pages/echarts/echarts7.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>热力图</cite>
+						</a>
+					</li>
+					<li>
+						<a _href="pages/echarts/echarts8.html">
+							<i class="iconfont">&#xe6a7;</i>
+							<cite>仪表图</cite>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+		</ul>
+	</div>
+</div>
+<!-- <div class="x-slide_left"></div> -->
+<!-- 左侧菜单结束 -->
+<!-- 右侧主体开始 -->
+<div class="page-content">
+	<div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+		<ul class="layui-tab-title">
+			<li class="home" lay-id="0">
+				<i class="layui-icon">&#xe68e;</i>我的桌面
+			</li>
+		</ul>
+		<div class="layui-tab-content">
+			<div class="layui-tab-item layui-show">
+				<iframe src="pages/welcome.html" frameborder="0" id="iframe_0" class="x-iframe"></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="page-content-bg"></div>
+<!-- 右侧主体结束 -->
+<!-- 中部结束 -->
+<!-- 底部开始 -->
+<div class="footer">
+	<div class="copyright">B0Admin &copy; 2019</div>
+</div>
+<!-- 底部结束 -->
+</body>
+
+<script type="text/javascript" src="js/libs/jquery.min.js "></script>
+<script type="text/javascript" src="js/libs/layui/layui.js "></script>
+<script type="text/javascript" src="js/main.js"></script>
+</html>

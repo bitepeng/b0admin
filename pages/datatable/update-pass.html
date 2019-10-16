@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+
+</head>
+
+<body>
+<div class="x-body" id="app">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class="text-color-red">*</span>
+                原密码
+            </label>
+            <div class="layui-input-inline">
+                <input type="password" name="oldpass" required="" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">新密码</label>
+            <div class="layui-input-inline">
+                <input type="password" name="pass" id="L_pass" lay-verify="pass" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">确认密码</label>
+            <div class="layui-input-inline">
+                <input type="password" name="repass" id="L_repass" lay-verify="repass" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label"></label>
+            <div class="layui-input-inline">
+                <button class="layui-btn" lay-filter="add" lay-submit="">保存</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" src="../../js/libs/jquery.min.js "></script>
+<script type="text/javascript" src="../../js/libs/layui/layui.js"></script>
+<script type="text/javascript" src="../../js/libs/vue/vue.js"></script>
+<script type="text/javascript" src="../../js/main.js"></script>
+<script type="text/javascript" src="../../js/utils.js"></script>
+
+<script>
+	var G = {
+		editUrl: "./json/update-pass.json"
+	}
+	layui.use(['form', 'layer'], function () {
+		var form = layui.form;
+		// 重新渲染 form 元素
+		form.render("checkbox");
+		//自定义验证规则
+		form.verify({
+			pass: function (value) {
+
+				var reg = /(.+){6,12}$/;
+				if (value != "" && !reg.test(value)) {
+					return '密码必须是6-12位的字符串';
+				}
+			},
+			repass: function () {
+				if ($('#L_pass').val() != $('#L_repass').val()) {
+					return '两次密码不一致';
+				}
+			}
+		});
+
+		//监听提交
+		form.on('submit(add)', function (data) {
+
+			console.log(data);
+			//发异步，把数据提交给后端
+            messageOk("密码更新成功");
+			x_admin_close("render");
+			return false;
+		});
+
+	});
+</script>
+
+</body>
+
+</html>

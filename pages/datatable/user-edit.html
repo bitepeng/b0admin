@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>数据编辑页面</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+
+</head>
+
+<body>
+<div class="x-body" id="app">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <label for="username" class="layui-form-label">
+                <span class="text-color-red">*</span>
+                登录名
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="username" name="username" v-model="username" required="" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        
+        </div>
+        <div class="layui-form-item">
+            <label for="phone" class="layui-form-label">
+                <span class="text-color-red">*</span>
+                手机
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="phone" name="phone" v-model="phone" required="" lay-verify="phone" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+                可用于登录系统
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="L_email" class="layui-form-label">
+                <span class="text-color-red">*</span>
+                邮箱
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="L_email" name="email" v-model="email" required="" lay-verify="email" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class="text-color-red">*</span>
+                角色</label>
+            <div class="layui-input-block">
+                <input type="checkbox" name="role[0]" value="admin" lay-skin="primary" title="超级管理员" v-model="role">
+                <input type="checkbox" name="role[1]" value="editor" lay-skin="primary" title="编辑人员" v-model="role">
+                <input type="checkbox" name="role[2]" value="operator" lay-skin="primary" title="运营人员" v-model="role">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline">
+                <input type="password" name="pass" id="L_pass" lay-verify="pass" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+                6-12位, 不改请留空
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">确认密码</label>
+            <div class="layui-input-inline">
+                <input type="password" name="repass" id="L_repass" lay-verify="repass" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <!-- placeholder -->
+            </label>
+            <button class="layui-btn" lay-filter="update" lay-submit="">保存</button>
+            <button class="layui-btn layui-btn-normal" type="reset">重置</button>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" src="../../js/libs/jquery.min.js "></script>
+<script type="text/javascript" src="../../js/libs/layui/layui.js"></script>
+<script type="text/javascript" src="../../js/libs/vue/vue.js"></script>
+<script type="text/javascript" src="../../js/main.js"></script>
+<script type="text/javascript" src="../../js/utils.js"></script>
+
+<script>
+    var G = {
+    	editUrl: "./json/user-edit.json"
+    }
+	var APP = new Vue({
+		el: "#app",
+		data: {
+			username: "",
+			phone: "",
+			email: "",
+			role: []
+		},
+
+        // 从后端获取数据
+		mounted: function () {
+			httpGet(G.editUrl, function (result) {
+				//更新数据模型
+				mergeObject(APP.$data, result.data);
+			});
+
+			this.$nextTick(function () {
+
+				layui.use(['form', 'layer'], function () {
+					$ = layui.jquery;
+					var form = layui.form;
+                    // 重新渲染 form 元素
+					form.render("checkbox");
+					//自定义验证规则
+					form.verify({
+						nikename: function (value) {
+							if (value.length < 5) {
+								return '昵称至少得5个字符啊';
+							}
+						},
+						pass: function (value) {
+
+							var reg = /(.+){6,12}$/;
+							if (value != "" && !reg.test(value)) {
+								return '密码必须是6-12位的字符串';
+							}
+						},
+						repass: function () {
+							if ($('#L_pass').val() != $('#L_repass').val()) {
+								return '两次密码不一致';
+							}
+						}
+					});
+
+					//监听提交
+					form.on('submit(update)', function (data) {
+
+						console.log(data.field);
+						//发异步，把数据提交给后端
+						var handler = top.layer.alert("数据更新成功", {
+							icon: 6
+						}, function () {
+							top.layer.close(handler);
+							//关闭弹出层
+							x_admin_close("render");
+						});
+						return false;
+					});
+
+				});
+			})
+		}
+	});
+</script>
+
+</body>
+
+</html>
