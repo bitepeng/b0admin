@@ -1,0 +1,57 @@
+<html lang="zh-cn">
+<head>
+<title>二维码</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<script type="text/javascript" src="../../js/libs/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/libs/qrcode/qrcode.min.js"></script>
+</head>
+<body>
+
+<label for="text">请输入URL</label>
+<input id="text" type="text" value="http://baidu.com" />
+<br />
+<div id="qrcode" style="width:200px; height:200px; margin-top:15px;"></div>
+
+<script type="text/javascript">
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+	width : 200,
+	height : 200
+});
+
+function makeCode () {		
+	var elText = document.getElementById("text");
+	
+	if (!elText.value) {
+		alert("Input a text");
+		elText.focus();
+		return;
+	}
+	
+	qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#text").
+	on("blur", function () {
+		makeCode();
+	}).
+	on("keydown", function (e) {
+		if (e.keyCode === 13) {
+			makeCode();
+		}
+	});
+$.ajax({
+    type: "GET",
+    url: "order",
+    //data: {username:$("#username").val(), content:$("#content").val()},
+    dataType: "text",
+    success: function(data){
+        alert(data);
+    }
+});
+
+</script>
+</body>
+</html>
